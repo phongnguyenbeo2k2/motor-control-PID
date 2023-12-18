@@ -34,12 +34,16 @@ void motor_set_PWM(int motor_duty,TIM_HandleTypeDef *htim)
 {
 	if (motor_duty > 0)
 	{
-		htim->Instance->CCR2 = (motor_duty)*((htim->Instance->ARR) / 100) ;
-		htim->Instance->CCR3 = 0;
+//		htim->Instance->CCR2 = (motor_duty)*((htim->Instance->ARR) / 100) ;
+//		htim->Instance->CCR3 = 0;
+		htim->Instance->CCR2 = 0;
+		htim->Instance->CCR3 = (motor_duty)*((htim->Instance->ARR) / 100);
 	}else if (motor_duty < 0)
 	{
-		htim->Instance->CCR2 = 0;
-		htim->Instance->CCR3 = (-motor_duty)*((htim->Instance->ARR) / 100);
+		htim->Instance->CCR2 = (-motor_duty)*((htim->Instance->ARR) / 100);
+		htim->Instance->CCR3 = 0;
+//		htim->Instance->CCR2 = 0;
+//		htim->Instance->CCR3 = (-motor_duty)*((htim->Instance->ARR) / 100);
 	}else if (motor_duty == 0)
 	{
 		htim->Instance->CCR2 = 0;

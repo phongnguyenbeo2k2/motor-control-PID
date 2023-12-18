@@ -27,7 +27,11 @@ motor_control_pid\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flas
 motor_control_pid\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 motor_control_pid\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 motor_control_pid\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+motor_control_pid\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 motor_control_pid\main.o: ../../my_lib/encoder.h
 motor_control_pid\main.o: ../../my_lib/motor.h
 motor_control_pid\main.o: ../../my_lib/ema_filter.h
 motor_control_pid\main.o: ../../my_lib/pid.h
+motor_control_pid\main.o: ../../my_lib/cmd_handle.h
+motor_control_pid\main.o: ../../my_lib/data_transfer_level.h
+motor_control_pid\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

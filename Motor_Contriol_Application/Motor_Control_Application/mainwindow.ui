@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1540</width>
+    <height>820</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>570</y>
+      <width>371</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="midLineWidth">
+     <number>0</number>
+    </property>
+    <widget class="QPushButton" name="send_pid_btn">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>60</y>
+       <width>80</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>SEND PID</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Kp_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>60</y>
+       <width>113</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="placeholderText">
+      <string>Enter Kp</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>160</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Kd</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>110</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ki</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Kd_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>160</y>
+       <width>113</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="placeholderText">
+      <string>Enter Kd</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Kp_label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>60</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Kp</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Ki_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>110</y>
+       <width>113</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="placeholderText">
+      <string>Enter Ki</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="PID_label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PID PARAMETERS</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>570</y>
+      <width>371</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <widget class="QComboBox" name="Com_comboBox">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>60</y>
+       <width>101</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>SELECT COM</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QComboBox" name="Baud_rate_comboBox">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>110</y>
+       <width>101</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>BAUD RATE</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="connect_btn">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>50</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string>CONNECT</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="refresh_btn">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>110</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>REFRESH</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="PID_label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>SERIAL </string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="PID_label_3">
+     <property name="geometry">
+      <rect>
+       <x>-20</x>
+       <y>60</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>COM</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="PID_label_4">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>110</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Baund rate</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>570</y>
+      <width>371</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <widget class="QPushButton" name="position_mode_btn">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>30</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>POSITION</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="velocity_mode_btn">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>120</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>VELOCITY</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="PID_label_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>MODE CONTROL</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>70</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Set point</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="setPoint_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>90</y>
+       <width>113</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="placeholderText">
+      <string>Enter setpoint </string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_4">
+    <property name="geometry">
+     <rect>
+      <x>1210</x>
+      <y>570</y>
+      <width>311</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <widget class="QPushButton" name="run_btn">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>111</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>RUN</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="reset_btn">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>50</y>
+       <width>111</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>RESET</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="stop_btn">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>130</y>
+       <width>111</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>STOP</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="PID_label_6">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>CONTROL MOTOR</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_6">
+    <property name="geometry">
+     <rect>
+      <x>1210</x>
+      <y>70</y>
+      <width>301</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <widget class="QTextEdit" name="notification_textEdit">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>30</y>
+       <width>241</width>
+       <height>261</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="clear_notice_table_btn">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>310</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>NOTFICATION</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_5">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>70</y>
+      <width>301</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QTextEdit" name="received_data_textEdit">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>30</y>
+       <width>241</width>
+       <height>261</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="clear_received_data_tabel_btn">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>310</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>RECEIVED DATA</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>811</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+     <widget class="QCustomPlot" name="graph" native="true">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>751</width>
+        <height>441</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1540</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <action name="actionAAk">
+   <property name="text">
+    <string>AAk</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
