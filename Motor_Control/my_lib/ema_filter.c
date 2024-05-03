@@ -21,7 +21,7 @@ void ema_filter_setalpha(EMA_FILTER_t *foo_ema, float foo_alpha)
 
 float ema_filter_update(EMA_FILTER_t *foo_ema, float input)
 {
-	foo_ema->current_out = foo_ema->alpla * input + (1 - foo_ema->alpla) * foo_ema->previous_out;
+	foo_ema->current_out = foo_ema->alpla* input + (1 - foo_ema->alpla) * foo_ema->previous_out;
 	foo_ema->previous_out = foo_ema->current_out;
 	return foo_ema->current_out;
 }

@@ -35,3 +35,5 @@ motor_control_pid\main.o: ../../my_lib/pid.h
 motor_control_pid\main.o: ../../my_lib/cmd_handle.h
 motor_control_pid\main.o: ../../my_lib/data_transfer_level.h
 motor_control_pid\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+motor_control_pid\main.o: ../../my_lib/send_data_to_Qt.h
+motor_control_pid\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

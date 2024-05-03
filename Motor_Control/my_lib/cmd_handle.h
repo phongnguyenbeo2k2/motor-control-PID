@@ -8,6 +8,7 @@
 #include "data_transfer_level.h"
 
 #define SEND_PID_CMD 										0x01
+#define EEROR_RX												0x02
 #define MODE_CONTROL_VELOCITY_CMD				0X03
 #define MODE_CONTROL_POSITION_CMD 			0x05
 #define START_CMD												0x07

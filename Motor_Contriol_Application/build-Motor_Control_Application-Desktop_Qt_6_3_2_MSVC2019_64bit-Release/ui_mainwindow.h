@@ -68,10 +68,16 @@ public:
     QTextEdit *received_data_textEdit;
     QPushButton *clear_received_data_tabel_btn;
     QLabel *label_5;
+    QFrame *frame_7;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QCustomPlot *graph;
+    QCustomPlot *plot_response_graph;
+    QPushButton *clear_response_graph_btn;
+    QPushButton *plot_response_graph_btn;
     QWidget *tab_2;
+    QCustomPlot *realtime_plot_graph;
+    QPushButton *plot_realtime_graph_btn;
+    QPushButton *clear_realtimegraph_btn;
     QStatusBar *statusbar;
     QMenuBar *menubar;
 
@@ -228,30 +234,50 @@ public:
         label_2->setAlignment(Qt::AlignCenter);
         frame_5 = new QFrame(centralwidget);
         frame_5->setObjectName(QString::fromUtf8("frame_5"));
-        frame_5->setGeometry(QRect(880, 70, 301, 361));
+        frame_5->setGeometry(QRect(910, 70, 271, 341));
         frame_5->setFrameShape(QFrame::StyledPanel);
         frame_5->setFrameShadow(QFrame::Raised);
         received_data_textEdit = new QTextEdit(frame_5);
         received_data_textEdit->setObjectName(QString::fromUtf8("received_data_textEdit"));
-        received_data_textEdit->setGeometry(QRect(40, 30, 241, 261));
+        received_data_textEdit->setGeometry(QRect(20, 30, 241, 261));
         clear_received_data_tabel_btn = new QPushButton(frame_5);
         clear_received_data_tabel_btn->setObjectName(QString::fromUtf8("clear_received_data_tabel_btn"));
-        clear_received_data_tabel_btn->setGeometry(QRect(190, 310, 80, 24));
+        clear_received_data_tabel_btn->setGeometry(QRect(180, 300, 80, 24));
         label_5 = new QLabel(frame_5);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(20, 10, 131, 16));
         label_5->setAlignment(Qt::AlignCenter);
-        tabWidget = new QTabWidget(centralwidget);
+        frame_7 = new QFrame(centralwidget);
+        frame_7->setObjectName(QString::fromUtf8("frame_7"));
+        frame_7->setGeometry(QRect(10, 29, 881, 531));
+        frame_7->setFrameShape(QFrame::Panel);
+        frame_7->setFrameShadow(QFrame::Sunken);
+        tabWidget = new QTabWidget(frame_7);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(10, 30, 811, 511));
+        tabWidget->setGeometry(QRect(30, 10, 831, 511));
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
-        graph = new QCustomPlot(tab);
-        graph->setObjectName(QString::fromUtf8("graph"));
-        graph->setGeometry(QRect(30, 20, 751, 441));
+        plot_response_graph = new QCustomPlot(tab);
+        plot_response_graph->setObjectName(QString::fromUtf8("plot_response_graph"));
+        plot_response_graph->setGeometry(QRect(30, 10, 771, 421));
+        clear_response_graph_btn = new QPushButton(tab);
+        clear_response_graph_btn->setObjectName(QString::fromUtf8("clear_response_graph_btn"));
+        clear_response_graph_btn->setGeometry(QRect(730, 450, 71, 20));
+        plot_response_graph_btn = new QPushButton(tab);
+        plot_response_graph_btn->setObjectName(QString::fromUtf8("plot_response_graph_btn"));
+        plot_response_graph_btn->setGeometry(QRect(30, 450, 71, 20));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        realtime_plot_graph = new QCustomPlot(tab_2);
+        realtime_plot_graph->setObjectName(QString::fromUtf8("realtime_plot_graph"));
+        realtime_plot_graph->setGeometry(QRect(30, 10, 771, 421));
+        plot_realtime_graph_btn = new QPushButton(tab_2);
+        plot_realtime_graph_btn->setObjectName(QString::fromUtf8("plot_realtime_graph_btn"));
+        plot_realtime_graph_btn->setGeometry(QRect(30, 450, 71, 20));
+        clear_realtimegraph_btn = new QPushButton(tab_2);
+        clear_realtimegraph_btn->setObjectName(QString::fromUtf8("clear_realtimegraph_btn"));
+        clear_realtimegraph_btn->setGeometry(QRect(730, 450, 71, 20));
         tabWidget->addTab(tab_2, QString());
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
@@ -263,6 +289,9 @@ public:
         MainWindow->setMenuBar(menubar);
 
         retranslateUi(MainWindow);
+
+        tabWidget->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -301,7 +330,11 @@ public:
         label_2->setText(QCoreApplication::translate("MainWindow", "NOTFICATION", nullptr));
         clear_received_data_tabel_btn->setText(QCoreApplication::translate("MainWindow", "Clear", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "RECEIVED DATA", nullptr));
+        clear_response_graph_btn->setText(QCoreApplication::translate("MainWindow", "Clear", nullptr));
+        plot_response_graph_btn->setText(QCoreApplication::translate("MainWindow", "Plot", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
+        plot_realtime_graph_btn->setText(QCoreApplication::translate("MainWindow", "Plot", nullptr));
+        clear_realtimegraph_btn->setText(QCoreApplication::translate("MainWindow", "Clear", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
     } // retranslateUi
 

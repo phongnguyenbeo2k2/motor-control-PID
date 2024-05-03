@@ -41,7 +41,7 @@ uint8_t frame_data::create_frame_data(uint8_t const *data_src, uint8_t length_ra
     return ((length_raw_data) + count_ESC + 4);
 }
 
-int8_t frame_data::decode_received_frame_data(uint8_t const *data_src, uint8_t *length_received_data, uint8_t *data_des, uint8_t *length_raw_data)
+int8_t frame_data::decode_received_frame_data(uint8_t const *data_src, uint8_t length_received_data, uint8_t *data_des, uint8_t *length_raw_data)
 {
     uint8_t start_check_frame = 0;
     uint8_t index = 0;
@@ -49,8 +49,11 @@ int8_t frame_data::decode_received_frame_data(uint8_t const *data_src, uint8_t *
     uint8_t const *p_start_check = data_src;
     uint16_t crc_check = 0;
     uint8_t count_raw_data = 0;
-    for (volatile int i = 0; i < *length_received_data; i++)
+    int check = 0;
+//    qDebug() << "received_data_from_STM32 1.2.1";/**/
+    for (volatile int i = 0; i < length_received_data; i++)
     {
+//        qDebug() << "received_data_from_STM32 1.2.2";
         if (*(data_src + i) == S_OF)
         {
             start_check_frame = 1;
@@ -58,23 +61,31 @@ int8_t frame_data::decode_received_frame_data(uint8_t const *data_src, uint8_t *
             break;
         }
     }
+//    qDebug() << "received_data_from_STM32 1.2.3";
     p_start_check += index;
     if (start_check_frame == 1)
     {
-        for (volatile int i = 0; i < *length_received_data; i++)
+//        qDebug() << "received_data_from_STM32 1.2.4";
+        for (volatile int i = 0; i < length_received_data; i++)
         {
+//            qDebug() << "received_data_from_STM32 1.2.5";
             if ((*(p_start_check + i) == E_OF) && (*(p_start_check + i - 1) != ESC))
             {
+//                qDebug() << "received_data_from_STM32 1.2.6";
                 index = i;
                 find_end_frame = 1;
                 break;
             }
         }
+//        qDebug() << "received_data_from_STM32 1.2.7";
         if (find_end_frame == 1)
         {
+//            qDebug() << "received_data_from_STM32 1.2.8";
             uint8_t test_1 = *(p_start_check + index - 2);
             while (*(p_start_check) != test_1)
             {
+//                qDebug() << "received_data_from_STM32 1.2.9";
+
                 if ((*(p_start_check)) == ESC)
                 {
                     crc_check = crc16_floating(*(p_start_check), crc_check);
@@ -88,14 +99,22 @@ int8_t frame_data::decode_received_frame_data(uint8_t const *data_src, uint8_t *
                 }
                 p_start_check++;
                 count_raw_data++;
+                check ++;
+                if (check > 20)
+                {
+                    break;
+                }
             }
+//            qDebug() << "received_data_from_STM32 1.2.10";
             uint8_t crc_1 = (uint8_t)crc_check;
             uint8_t crc_2 = (uint8_t)(crc_check >> 8);
             if (!(crc_1 == *(p_start_check) && crc_2 == *(p_start_check + 1)))
             {
+//                qDebug() << "received_data_from_STM32 1.2.11";
                 return EEROR_FRAME;
             }else
             {
+                qDebug() << "received_data_from_STM32 1.2.12";
                 *length_raw_data = count_raw_data;
                 return TRUE_FRAME;
             }

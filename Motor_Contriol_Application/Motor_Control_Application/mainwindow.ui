@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>570</y>
-      <width>371</width>
+      <width>381</width>
       <height>201</height>
      </rect>
     </property>
@@ -43,11 +43,20 @@
     <widget class="QPushButton" name="send_pid_btn">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>250</x>
        <y>60</y>
-       <width>80</width>
-       <height>31</height>
+       <width>111</width>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 0, 255)</string>
      </property>
      <property name="text">
       <string>SEND PID</string>
@@ -68,6 +77,9 @@
        <underline>false</underline>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid   rgb(89, 48, 255)</string>
+     </property>
      <property name="placeholderText">
       <string>Enter Kp</string>
      </property>
@@ -81,8 +93,15 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
+     </property>
      <property name="text">
-      <string>Kd</string>
+      <string>Kd:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -97,8 +116,15 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
+     </property>
      <property name="text">
-      <string>Ki</string>
+      <string>Ki:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -119,6 +145,9 @@
        <underline>false</underline>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid   rgb(89, 48, 255)</string>
+     </property>
      <property name="placeholderText">
       <string>Enter Kd</string>
      </property>
@@ -132,8 +161,15 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
+     </property>
      <property name="text">
-      <string>Kp</string>
+      <string>Kp:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -154,6 +190,9 @@
        <underline>false</underline>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid   rgb(89, 48, 255)</string>
+     </property>
      <property name="placeholderText">
       <string>Enter Ki</string>
      </property>
@@ -161,11 +200,18 @@
     <widget class="QLabel" name="PID_label">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>10</y>
-       <width>111</width>
-       <height>16</height>
+       <width>121</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
      </property>
      <property name="text">
       <string>PID PARAMETERS</string>
@@ -180,7 +226,7 @@
      <rect>
       <x>410</x>
       <y>570</y>
-      <width>371</width>
+      <width>381</width>
       <height>201</height>
      </rect>
     </property>
@@ -227,19 +273,19 @@
      <property name="geometry">
       <rect>
        <x>230</x>
-       <y>50</y>
-       <width>111</width>
-       <height>41</height>
+       <y>40</y>
+       <width>121</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>11</pointsize>
+       <pointsize>10</pointsize>
        <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(0, 255, 0);</string>
+      <string notr="true">color: rgb(0, 223, 0)</string>
      </property>
      <property name="text">
       <string>CONNECT</string>
@@ -249,10 +295,18 @@
      <property name="geometry">
       <rect>
        <x>230</x>
-       <y>110</y>
-       <width>111</width>
-       <height>41</height>
+       <y>120</y>
+       <width>121</width>
+       <height>51</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(70, 139, 209)</string>
      </property>
      <property name="text">
       <string>REFRESH</string>
@@ -261,14 +315,19 @@
     <widget class="QLabel" name="PID_label_2">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>-10</x>
        <y>10</y>
        <width>111</width>
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>SERIAL </string>
+      <string>SERIAL PORT</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -282,6 +341,11 @@
        <width>111</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>COM</string>
@@ -299,8 +363,13 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>Baund rate</string>
+      <string>Baundrate</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -310,9 +379,9 @@
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
-      <x>820</x>
+      <x>810</x>
       <y>570</y>
-      <width>371</width>
+      <width>381</width>
       <height>201</height>
      </rect>
     </property>
@@ -328,37 +397,63 @@
     <widget class="QPushButton" name="position_mode_btn">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>190</x>
        <y>30</y>
-       <width>121</width>
+       <width>151</width>
        <height>61</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: 
+rgb(85, 85, 255)</string>
+     </property>
      <property name="text">
-      <string>POSITION</string>
+      <string>POSITION (degrees)</string>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QPushButton" name="velocity_mode_btn">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>190</x>
        <y>120</y>
-       <width>121</width>
+       <width>151</width>
        <height>61</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: 
+rgb(85, 85, 255)</string>
+     </property>
      <property name="text">
-      <string>VELOCITY</string>
+      <string>VELOCITY (rpm)</string>
      </property>
     </widget>
     <widget class="QLabel" name="PID_label_5">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>0</x>
        <y>10</y>
        <width>111</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>MODE CONTROL</string>
@@ -370,11 +465,18 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>40</x>
        <y>70</y>
        <width>91</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <italic>false</italic>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
      </property>
      <property name="text">
       <string>Set point</string>
@@ -386,7 +488,7 @@
     <widget class="QLineEdit" name="setPoint_lineEdit">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>30</x>
        <y>90</y>
        <width>113</width>
        <height>24</height>
@@ -396,6 +498,9 @@
       <font>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid rgb(85, 85, 255)</string>
      </property>
      <property name="placeholderText">
       <string>Enter setpoint </string>
@@ -429,6 +534,15 @@
        <height>61</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color : rgb(85, 170, 127)</string>
+     </property>
      <property name="text">
       <string>RUN</string>
      </property>
@@ -441,6 +555,15 @@
        <width>111</width>
        <height>61</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color : rgb(85, 170, 127)</string>
      </property>
      <property name="text">
       <string>RESET</string>
@@ -455,6 +578,15 @@
        <height>61</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color : rgb(85, 170, 127)</string>
+     </property>
      <property name="text">
       <string>STOP</string>
      </property>
@@ -462,11 +594,16 @@
     <widget class="QLabel" name="PID_label_6">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>10</y>
        <width>111</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>CONTROL MOTOR</string>
@@ -479,10 +616,10 @@
    <widget class="QFrame" name="frame_6">
     <property name="geometry">
      <rect>
-      <x>1210</x>
-      <y>70</y>
-      <width>301</width>
-      <height>361</height>
+      <x>1220</x>
+      <y>30</y>
+      <width>291</width>
+      <height>341</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -497,20 +634,23 @@
     <widget class="QTextEdit" name="notification_textEdit">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>20</x>
        <y>30</y>
        <width>241</width>
        <height>261</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid black</string>
+     </property>
     </widget>
     <widget class="QPushButton" name="clear_notice_table_btn">
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>310</y>
+       <x>180</x>
+       <y>300</y>
        <width>80</width>
-       <height>24</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -520,11 +660,16 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>10</y>
+       <x>-10</x>
+       <y>0</y>
        <width>131</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>NOTFICATION</string>
@@ -537,10 +682,10 @@
    <widget class="QFrame" name="frame_5">
     <property name="geometry">
      <rect>
-      <x>880</x>
-      <y>70</y>
-      <width>301</width>
-      <height>361</height>
+      <x>900</x>
+      <y>30</y>
+      <width>291</width>
+      <height>341</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -552,20 +697,23 @@
     <widget class="QTextEdit" name="received_data_textEdit">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>20</x>
        <y>30</y>
        <width>241</width>
        <height>261</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid black</string>
+     </property>
     </widget>
     <widget class="QPushButton" name="clear_received_data_tabel_btn">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>310</y>
+       <x>180</x>
+       <y>300</y>
        <width>80</width>
-       <height>24</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -575,11 +723,16 @@
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>10</y>
+       <x>0</x>
+       <y>0</y>
        <width>131</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>RECEIVED DATA</string>
@@ -588,35 +741,153 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QPushButton" name="Read_data_STM_btn">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>300</y>
+       <width>80</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Read_data</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QFrame" name="frame_7">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
-      <width>811</width>
-      <height>511</height>
+      <y>19</y>
+      <width>881</width>
+      <height>541</height>
      </rect>
     </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-     <widget class="QCustomPlot" name="graph" native="true">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>20</y>
-        <width>751</width>
-        <height>441</height>
-       </rect>
-      </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>831</width>
+       <height>511</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Limit </string>
+      </attribute>
+      <widget class="QCustomPlot" name="plot_response_graph" native="true">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>10</y>
+         <width>771</width>
+         <height>421</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="clear_response_graph_btn">
+       <property name="geometry">
+        <rect>
+         <x>730</x>
+         <y>439</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>.VnArial</family>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="plot_response_graph_btn">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>439</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>.VnArial</family>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Plot</string>
+       </property>
+      </widget>
      </widget>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Tab 2</string>
-     </attribute>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Real Time</string>
+      </attribute>
+      <widget class="QCustomPlot" name="realtime_plot_graph" native="true">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>10</y>
+         <width>771</width>
+         <height>421</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="plot_realtime_graph_btn">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>439</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>.VnArial</family>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Plot</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="clear_realtimegraph_btn">
+       <property name="geometry">
+        <rect>
+         <x>730</x>
+         <y>439</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>.VnArial</family>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
    </widget>
   </widget>

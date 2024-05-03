@@ -583,6 +583,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\my_lib\crc16.c</FilePath>
             </File>
+            <File>
+              <FileName>send_data_to_Qt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\my_lib\send_data_to_Qt.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -23,7 +23,7 @@ typedef union data
 #define MAX_FRAME_DATA_TX       (MAX_RAW_DATA_TX * 2 + 4)
 
 void create_raw_frame_data(uint8_t *mode, float *data_to_send, uint8_t *frame_data);
-uint8_t create_frame_uart_tx_data(uint8_t *data_src, uint8_t *length_raw_data, uint8_t *data_des);
+uint8_t create_frame_uart_tx_data(uint8_t *data_src, uint8_t length_raw_data, uint8_t *data_des);
 int8_t decode_received_frame_data(uint8_t *data_src,uint8_t *length_received_data, uint8_t *data_des, uint16_t *length_raw_data);
 
 #endif

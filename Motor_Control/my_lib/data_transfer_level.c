@@ -13,12 +13,12 @@ void create_raw_frame_data(uint8_t *mode, float *data_to_send, uint8_t *frame_da
 	memcpy(frame_data + index,tx_data.data,sizeof(float));
 }
 
-uint8_t create_frame_uart_tx_data(uint8_t *data_src, uint8_t *length_raw_data, uint8_t *data_des)
+uint8_t create_frame_uart_tx_data(uint8_t *data_src, uint8_t length_raw_data, uint8_t *data_des)
 {
 	uint16_t count_ESC = 0;
 	uint16_t crc = 0;
 	*(data_des ++) = S_OF;
-	for (int i = 0; i < *length_raw_data; i++)
+	for (int i = 0; i < length_raw_data; i++)
 	{
 		if ((*(data_src+i)) == S_OF || (*(data_src+i) == ESC) || (*(data_src + i) == E_OF))
 		{
@@ -37,7 +37,7 @@ uint8_t create_frame_uart_tx_data(uint8_t *data_src, uint8_t *length_raw_data, u
 	*(data_des++) = (uint8_t) (crc);
 	*(data_des++) = (uint8_t) (crc >> 8);
 	*(data_des) = E_OF;
-	return ((*length_raw_data) + count_ESC + 4);
+	return ((length_raw_data) + count_ESC + 4);
 }
 
 int8_t decode_received_frame_data(uint8_t *data_src,uint8_t *length_received_data, uint8_t *data_des, uint16_t *length_raw_data)
@@ -62,7 +62,8 @@ int8_t decode_received_frame_data(uint8_t *data_src,uint8_t *length_received_dat
 	{
 		for (volatile int i = 0; i < *length_received_data; i++)
 		{
-			if ((*(p_start_check + i) == E_OF) && (*(p_start_check + i - 1) != ESC))
+//			 && (*(p_start_check + i - 1) != ESC
+			if (*(p_start_check + i) == E_OF)
 			{
 				index = i;
 				find_end_frame = 1;
@@ -72,7 +73,7 @@ int8_t decode_received_frame_data(uint8_t *data_src,uint8_t *length_received_dat
 		if (find_end_frame == 1)
 		{
 			uint8_t test_1 = *(p_start_check + index - 2);
-			while (*(p_start_check) != test_1)
+			while (((*(p_start_check) != test_1) || (*(p_start_check + 2) != E_OF)))
 			{
 				if ((*(p_start_check)) == ESC)
 				{

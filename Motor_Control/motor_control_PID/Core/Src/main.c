@@ -27,6 +27,7 @@
 #include "pid.h"
 #include "cmd_handle.h"
 #include "data_transfer_level.h"
+#include "send_data_to_Qt.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -80,6 +81,10 @@ PID_t position_pid;
 EMA_FILTER_t foo_ema_filter;
 MODE_t control_mode = MODE_IDLE;
 CONTROL_MOTOR_t control_motor = STOP_MOTOR;
+/*test*/
+MODE_t control_mode_test = VELO_CONTROL_MODE;
+CONTROL_MOTOR_t control_motor_test = START_MOTOR;
+MOTOR gear_motor_test;
 /*-----------------------------------------*/
 /*Those are variable for transfering data*/
 uint8_t motor_data[MAX_RAW_DATA_TX] = {0};
@@ -92,6 +97,8 @@ uint8_t decoded_data[MAX_RAW_DATA_RX] = {0};
 uint16_t length_decoded_data = 0;
 uint8_t new_incoming_data = 0;
 int8_t check_frame = 0;
+float motor_duty_test;
+uint32_t test ;
 
 
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
@@ -139,18 +146,20 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	HAL_UARTEx_ReceiveToIdle_DMA(&huart1,frame_data_rx,MAX_FRAME_DATA_RX);
 	__HAL_DMA_DISABLE_IT(&hdma_usart1_rx,DMA_IT_HT);
-	encoder_init(&foo_encoder,&htim2);
+//	encoder_init(&foo_encoder,&htim2);
 	motor_init(&gear_motor,&htim1);
 	ema_filter_init(&foo_ema_filter);
-	ema_filter_setalpha(&foo_ema_filter,0.15);
-	
+	ema_filter_setalpha(&foo_ema_filter,0.1);
+//	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+//	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 //	HAL_TIM_Base_Start_IT(&htim3);
-	/*setting pid*/
-//	pid_init(&foo_pid,20,0.01,0);
-	/*setting velocity */
+	
+//	pid_init(&velocity_pid,20,0.1,0);
 //	gear_motor.set_point_velocity = 20;
-	/*set position*/
-//	gear_motor.set_point_position = 360;
+//	htim1.Instance->CCR2 = 0;
+//	htim1.Instance->CCR3 = 80;
+//	control_mode = VELO_CONTROL_MODE;
+//	control_motor = START_MOTOR;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -231,7 +240,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 639;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 999;
+  htim1.Init.Period = 99;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -302,7 +311,7 @@ static void MX_TIM2_Init(void)
   htim2.Init.Period = 65535;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
@@ -470,7 +479,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		/*Step 2: caluate position */
 		calculate_motor(&foo_encoder,&gear_motor,CALCULATE_POSITION);
 		/*Step 3: processed by pid controller */
-		int motor_duty;
+		float motor_duty;
 		motor_duty = pid_compute_position(&position_pid,&gear_motor,&foo_ema_filter);
 		/*Step 4: control motor*/
 		motor_set_PWM(motor_duty,&htim1);
@@ -480,11 +489,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		/*Step 2: caluate position */
 		calculate_motor(&foo_encoder,&gear_motor,CALCULATE_VELOCITY);
 		/*Step 3: processed by pid controller */
-		int motor_duty;
-		motor_duty = pid_compute_velocity(&velocity_pid,&gear_motor,&foo_ema_filter);
+		float motor_duty;
+		motor_duty_test = pid_compute_velocity(&velocity_pid,&gear_motor,&foo_ema_filter);
 		/*Step 4: control motor*/
-		motor_set_PWM(motor_duty,&htim1);
+		motor_set_PWM(motor_duty_test,&htim1);
 		}
+		send_data_to_Qt(&gear_motor,&control_mode,&control_motor,frame_data_tx,&length_frame_tx);
 	}
 }
 /* USER CODE END 4 */

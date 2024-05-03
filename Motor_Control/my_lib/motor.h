@@ -40,5 +40,5 @@ void motor_init(MOTOR *foo_motor, TIM_HandleTypeDef *htim);
 void motor_setpoint_velocity(MOTOR *foo_motor, float setpoint);
 void motor_setpoint_position(MOTOR *foo_motor, float setpoint);
 void calculate_motor(ENCODER *foo_encoder, MOTOR *foo_motor, uint8_t calculate_velocity);
-void motor_set_PWM(int motor_duty,TIM_HandleTypeDef *htim);
+void motor_set_PWM(float motor_duty,TIM_HandleTypeDef *htim);
 #endif

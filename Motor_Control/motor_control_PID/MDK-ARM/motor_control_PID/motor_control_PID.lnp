@@ -25,6 +25,7 @@
 "motor_control_pid\cmd_handle.o"
 "motor_control_pid\data_transfer_level.o"
 "motor_control_pid\crc16.o"
+"motor_control_pid\send_data_to_qt.o"
 --strict --scatter "motor_control_PID\motor_control_PID.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

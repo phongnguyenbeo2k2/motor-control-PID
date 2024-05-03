@@ -34,3 +34,4 @@ motor_control_pid\cmd_handle.o: ..\..\my_lib\pid.h
 motor_control_pid\cmd_handle.o: ..\..\my_lib\ema_filter.h
 motor_control_pid\cmd_handle.o: ..\..\my_lib\data_transfer_level.h
 motor_control_pid\cmd_handle.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+motor_control_pid\cmd_handle.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

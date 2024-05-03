@@ -14,22 +14,22 @@ float pid_compute_velocity(PID_t *foo_pid, MOTOR *foo_motor, EMA_FILTER_t *foo_e
 	/*velocity*/
 	/*Step 1: filtered by ema filter uint*/
 	float velocity_filtered, output_pid_velo_unit;
-	velocity_filtered = ema_filter_update(foo_ema,foo_motor->velocity_of_motor); 
+//	velocity_filtered = ema_filter_update(foo_ema,foo_motor->velocity_of_motor); 
 	float error_velo = foo_motor->set_point_velocity  - foo_motor->velocity_of_motor;
-	foo_motor->velocity_of_motor = velocity_filtered;
+//	foo_motor->velocity_of_motor = velocity_filtered;
 	foo_pid->I_part += Ts * error_velo;
-	if (error_velo < 0.005f*(foo_motor->set_point_velocity))
-	{
-		foo_pid->I_part = 0;
-	}
-	output_pid_velo_unit = foo_pid->Kp * error_velo + (foo_pid->Ki)*(foo_pid->I_part) + foo_pid->Kd * ((error_velo - foo_pid->pre_error_value) / Ts);
+//	if (error_velo < 0.005f*(foo_motor->set_point_velocity))
+//	{
+//		foo_pid->I_part = 0;
+//	}
+	output_pid_velo_unit = (foo_pid->Kp * error_velo) + (foo_pid->Ki)*(foo_pid->I_part) + (foo_pid->Kd) * ((error_velo - foo_pid->pre_error_value) / Ts);
 	foo_pid->pre_error_value = error_velo;
-	if (output_pid_velo_unit > 90.0)
+	if (output_pid_velo_unit > 95)
 	{
-		output_pid_velo_unit = 90;
-	}else if (output_pid_velo_unit < -90.0)
+		output_pid_velo_unit = 95;
+	}else if (output_pid_velo_unit < -95)
 	{
-		output_pid_velo_unit = -90;
+		output_pid_velo_unit = -95;
 	}
 	return output_pid_velo_unit;
 }
@@ -46,12 +46,12 @@ float pid_compute_position(PID_t *foo_pid, MOTOR *foo_motor, EMA_FILTER_t *foo_e
 	}
 	output_pid_position_uinit = foo_pid->Kp * error_position + (foo_pid->Ki)*(foo_pid->I_part) + (foo_pid->Kd)* ((error_position - foo_pid->pre_error_value) / Ts);
 	foo_pid->pre_error_value = error_position;
-	if (output_pid_position_uinit > 90)
+	if (output_pid_position_uinit > 95)
 	{
-		output_pid_position_uinit = 90;
-	}else if (output_pid_position_uinit < -90)
+		output_pid_position_uinit = 95;
+	}else if (output_pid_position_uinit < -95)
 	{
-		output_pid_position_uinit = -90;
+		output_pid_position_uinit = -95;
 	}
 	return output_pid_position_uinit;
 }

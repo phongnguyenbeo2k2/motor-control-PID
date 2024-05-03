@@ -11,5 +11,6 @@ int main(int argc, char *argv[])
     w.setWindowState(Qt::WindowMaximized);
     w.show();
     w.setWindowIcon(QIcon(":/resource/image/motor.png"));
+//    w.setStyleSheet("color: rgb(244, 244, 244);");
     return a.exec();
 }
